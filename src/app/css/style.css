@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Black & White Theme - CSS Custom Properties */
+:root {
+  --color-black-primary: #000000;
+  --color-black-soft: #0a0a0a;
+  --color-black-light: #1a1a1a;
+  --color-white-primary: #ffffff;
+  --color-white-soft: #f8f8f8;
+  --color-gray-soft: #e8e8e8;
+  --color-gray-medium: #cccccc;
+  --color-gray-dark: #666666;
+
+  --gradient-black-soft: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  --gradient-black-radial: radial-gradient(
+    circle at top,
+    #1a1a1a 0%,
+    #000000 100%
+  );
+  --gradient-white-soft: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  --gradient-gray-subtle: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+
+  --shadow-soft: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0px 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-strong: 0px 12px 40px rgba(0, 0, 0, 0.18);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease-out;
+}
+
+/* Premium Gradient Utilities */
+@layer utilities {
+  .gradient-black-to-gray {
+    background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+  }
+
+  .gradient-white-to-gray {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  }
+
+  .gradient-radial-black {
+    background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
+  }
+
+  .gradient-text-black {
+    background: linear-gradient(135deg, #000000 0%, #3a3a3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Glassmorphism Effects */
+@layer components {
+  .glass-white {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-black {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-gray {
+    background: rgba(248, 248, 248, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Smooth Transitions */
+@layer base {
+  * {
+    @apply transition-smooth;
+  }
+
+  a,
+  button {
+    @apply transition-fast;
+  }
+}
+
+/* Premium Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Range Slider - Updated for B&W Theme */
+.range-slider {
+  @apply w-full !h-[4px] rounded-md bg-gray-3 relative mb-3;
+}
+
+.slider .thumb {
+  @apply w-6 h-6 bg-black rounded-full absolute -top-2 border-[5px] border-gray-2;
+}
+
+.range-slider__thumb {
+  @apply !bg-white border-[1px] border-gray-3 flex justify-center items-center !w-7 !h-7;
+}
+
+.range-slider__thumb::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  border-radius: 100%;
+  position: absolute;
+  background-color: #000000;
+}
+
+.range-slider__range {
+  background-color: #000000 !important;
+}
+
+/* Utility Classes */
+.transition-smooth {
+  transition: var(--transition-smooth);
+}
+
+.transition-fast {
+  transition: var(--transition-fast);
+}

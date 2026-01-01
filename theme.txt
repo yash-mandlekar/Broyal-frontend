@@ -1,0 +1,162 @@
+# Jewellery Store Theme Design System
+# brand name - ornapay
+# icons - lucide-react
+## Color Palette
+
+### Primary Colors
+- **Deep Burgundy**: `#832729` - Main action color, buttons, icons, accents
+- **Dark Maroon**: `#4F1719` - Text headings, strong emphasis, premium feel
+- **White**: `#FFFFFF` - Background, cards, text on dark backgrounds
+- **Black**: `#000000` - Text body, secondary text, borders
+
+### Secondary Colors
+- **Cream Background**: `#f5f1ed` - Page background, light surfaces, tab backgrounds
+- **Light Border**: `#e5d9d0` - Input borders, subtle dividers
+- **Gray Text**: `#666666` (for secondary text)
+- **Light Gray**: `#f9f7f5` (for hover states, subtle backgrounds)
+
+## Typography
+
+- **Headings**: Bold, Dark Maroon (#4F1719)
+  - H1: 2.25rem (36px) - Page titles
+  - H2: 1.875rem (30px) - Section headings
+  - H3: 1.125rem (18px) - Subsections
+
+- **Body Text**: Regular, Black/Dark Gray
+  - Primary text: 1rem (16px)
+  - Secondary text: 0.875rem (14px)
+  - Small text: 0.75rem (12px)
+
+- **Font Weight**: Semibold (600) for buttons, labels; Regular (400) for body text
+
+## Components Style Guide
+
+### Buttons
+
+**Primary Button**
+- Background: `#832729` (Deep Burgundy)
+- Text: White
+- Hover: Slight opacity increase + shadow enhancement
+- Transform: `hover:scale-105` for subtle lift effect
+- Shadow: `shadow-xl` with `shadow-blue-600/30` equivalent using burgundy
+
+**Secondary Button**
+- Background: `#f5f1ed` (Cream)
+- Text: `#832729` (Deep Burgundy)
+- Border: `2px solid #e5d9d0`
+- Hover: Text color darkens to `#4F1719`
+
+**Text Link**
+- Color: `#832729` (Deep Burgundy)
+- Hover: `opacity-70`
+- Font Weight: Semibold
+
+### Input Fields
+
+**Default State**
+- Border: `2px solid #e5d9d0` (Light Border)
+- Background: White
+- Text: Black
+- Placeholder: Gray
+
+**Focus State**
+- Border: `2px solid #832729` (Deep Burgundy)
+- Ring: None (keep clean)
+- Transition: `duration-200`
+
+**Disabled State**
+- Opacity: `0.5`
+- Cursor: `not-allowed`
+
+### Cards & Containers
+
+- **Background**: White (`#FFFFFF`)
+- **Border**: `2px solid #832729` (Deep Burgundy) - for premium feel
+- **Padding**: 
+  - Mobile: `p-6` (24px)
+  - Desktop: `p-10` (40px)
+- **Border Radius**: `rounded-2xl` (16px)
+- **Shadow**: `shadow-2xl` for depth
+
+### Background Gradients
+
+**Page Background**
+```
+linear-gradient(135deg, #f5f1ed 0%, #ede8e3 100%)
+```
+Subtle cream to light beige gradient for elegant feel
+
+### Icons
+
+- **Color**: `#832729` (Deep Burgundy)
+- **Size**: 18px for labels, 24px for standalone
+- **Placement**: Left of text with `gap-2` spacing
+
+### Tab Components
+
+**Active Tab**
+- Background: `#832729` (Deep Burgundy)
+- Text: White
+- Shadow: `shadow-lg`
+
+**Inactive Tab**
+- Background: `#f5f1ed` (Cream)
+- Text: Gray (`#666666`)
+- Hover: Text color to `#4F1719`
+
+### Form Layout
+
+- **Field Spacing**: `space-y-5` between fields
+- **Label to Field**: `mb-2.5`
+- **Help Text**: Small (12px), Gray color
+- **Error State**: Change border to `#d32f2f` (error red)
+
+## Usage Examples
+
+### For New Components
+
+**Buttons**
+```jsx
+// Primary
+<button style={{backgroundColor: '#832729'}} className="text-white font-semibold py-3 px-6 rounded-lg">
+  Action
+</button>
+
+// Secondary
+<button style={{borderColor: '#832729'}} className="border-2 text-gray-900 font-semibold py-3 px-6 rounded-lg">
+  Secondary
+</button>
+```
+
+**Input Fields**
+```jsx
+<input
+  className="w-full border-2 px-4 py-3 rounded-lg outline-none transition-all"
+  style={{borderColor: '#e5d9d0'}}
+  onFocus={(e) => e.target.style.borderColor = '#832729'}
+  onBlur={(e) => e.target.style.borderColor = '#e5d9d0'}
+/>
+```
+
+**Cards**
+```jsx
+<div className="bg-white rounded-2xl shadow-2xl p-8" style={{borderColor: '#832729', borderWidth: '2px'}}>
+  Content here
+</div>
+```
+
+## Accessibility
+
+- Maintain minimum contrast ratio of 4.5:1 for text
+- Use semantic HTML (buttons, labels, etc.)
+- Include focus states for keyboard navigation
+- Use `aria-labels` for icon-only buttons
+- Test with screen readers
+
+## Responsive Breakpoints
+
+- **Mobile**: < 640px (`sm`)
+- **Tablet**: 640px - 1024px (`md`, `lg`)
+- **Desktop**: > 1024px (`xl`)
+
+Adjust padding, font sizes, and spacing accordingly for each breakpoint.
